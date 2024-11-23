@@ -5,5 +5,5 @@ from sqlalchemy.orm import sessionmaker
 DATABASE_URL = "postgresql://parksmart:parksmart@localhost/parking_app"
 
 engine = create_engine(DATABASE_URL)
-SessionLocal = sessionmaker(autocommit = False, autoflush = False, bing = engine)
+SessionLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)
 Base = declarative_base()
