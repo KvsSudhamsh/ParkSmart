@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres-container
+    environment:
+      POSTGRES_USER: parksmart
+      POSTGRES_PASSWORD: parksmart
+      POSTGRES_DB: parking_app
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/bin/postgresql/data
+
+volumes:
+  postgres_data:
