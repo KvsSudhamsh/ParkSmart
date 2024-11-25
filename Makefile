@@ -13,3 +13,7 @@ stop-db:
 # to check postgres logs
 logs-db:
 	docker-compose -f $(COMPOSE_FILE) logs -f postgres
+
+# Application start
+start:
+	cd backend && uvicorn main:app --reload
