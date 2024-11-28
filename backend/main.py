@@ -23,7 +23,7 @@ def list_spots(db: Session = Depends(get_db)):
     return get_spots(db)
 
 @app.post("/reserve")
-def make_reservation(user_id: int, spot_id: id, db: Session = Depends(get_db)):
+def make_reservation(user_id: int, spot_id: int, db: Session = Depends(get_db)):
     reservation = reserve_spot(db, user_id, spot_id)
     if reservation:
         return {"message": "Reservation successful"}
