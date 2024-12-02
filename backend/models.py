@@ -5,8 +5,26 @@ from database import Base
 class User(Base):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True, index=True)
-    username = Column(String, unique=True, nullable=True)
-    password = Column(String, nullable=False)
+    _username = Column(String, unique=True, nullable=True)
+    _password = Column(String, nullable=False)
+
+    @property
+    def Username(self):
+        return self._username
+
+    @Username.setter
+    def Username(self, username):
+        self._username = username
+        return None
+
+    @property
+    def Password(self):
+        return self._password
+    
+    @Password.setter
+    def Password(self, password):
+        self._password = password
+        return None
 
 class ParkingSpot(Base):
     __tablename__ = 'parking_spots'
