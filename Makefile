@@ -16,4 +16,4 @@ logs-db:
 
 # Application start
 start:
-	cd backend && uvicorn main:app --reload
+	cd backend && uvicorn main:app --port 8080 --reload

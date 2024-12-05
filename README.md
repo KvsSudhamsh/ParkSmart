@@ -21,3 +21,8 @@ ParkSmart % make stop-db
 ```
 ParkSmart % make logs-db
 ```
+
+### to start the application
+```
+ParkSmart % make start
+```
