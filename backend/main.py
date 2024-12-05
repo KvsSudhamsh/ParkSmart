@@ -2,7 +2,7 @@ from fastapi import FastAPI, Depends, HTTPException
 from database import SessionLocal, engine
 from models import Base
 from sqlalchemy.orm import Session
-from crud import create_user, get_spots, reserve_spot
+from crud import create_user, get_spots, reserve_spot, set_spots
 # import uvicorn
 
 Base.metadata.create_all(bind=engine)
@@ -22,6 +22,10 @@ def register(username: str, password: str, db: Session = Depends(get_db)):
 @app.get("/spots")
 def list_spots(db: Session = Depends(get_db)):
     return get_spots(db)
+
+@app.post("/setSpots")
+def register_spots(spots : int, db : Session = Depends(get_db)):
+    return set_spots(db, spots)
 
 @app.post("/reserve")
 def make_reservation(user_id: int, spot_id: int, db: Session = Depends(get_db)):
