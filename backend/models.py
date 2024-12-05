@@ -33,6 +33,6 @@ class ParkingSpot(Base):
 
 class Reservation(Base):
     __tablename__ = 'reservation'
-    id = Column(Integer, primary_key=True, index=True)
+    reservation_id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, ForeignKey('users.id'))
     spot_id = Column(Integer, ForeignKey('parking_spots.id'))
